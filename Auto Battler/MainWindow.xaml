@@ -28,16 +28,40 @@
 
         <TextBlock Name="TxtPower" FontSize="14" Grid.Row ="1" Grid.Column ="5" Margin="0,0,93,68" />
 
-        <TextBox Grid.Row="1" Name="TBoxPower" Margin="0,0,93,68" Grid.Column="5" />
+        <TextBox Grid.Row="1" Name="TBoxPower" Margin="0,0,93,68" Grid.Column="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
 
         <Button Name="Attack" Grid.Column="5" Grid.Row="2" Click="Power" Margin="0,0,44,0" Grid.ColumnSpan="2" Background="DarkSlateGray">Attack</Button>
 
         <TextBlock Text = "Accuracy" FontSize="14" Grid.Column ="5" Margin="114,19,10,122" Grid.RowSpan="2" />
 
-        <TextBox Grid.Row="1" x:Name="TBoxAccuracy" Margin="93,0,44,68" Grid.Column="5" Grid.ColumnSpan="2" />
-        
+        <TextBox Grid.Row="1" x:Name="TBoxAccuracy" Margin="93,0,44,68" Grid.Column="5" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+
         <TextBlock Grid.Row="1" x:Name="DiceOne" Margin="0,67,92,1" Grid.Column="5" TextAlignment="Center" FontSize="20" />
+
         <TextBlock Grid.Row="1" x:Name="DiceTwo" Margin="92,66,44,1" Grid.Column="5" Grid.ColumnSpan="2" TextAlignment="Center" FontSize="20" />
+
+        <TextBlock Grid.Row="2" Grid.Column="3" x:Name="Hit" Text="Hit!" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Visibility="Hidden" />
+
+        <TextBlock Grid.Row="2" Grid.Column="3" x:Name="Miss" Text="Miss!" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Visibility="Hidden" />
+
+        <TextBox Grid.Row="1" x:Name="TBoxMaxHp" Margin="43,0,92,69" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" TextChanged="maxHpChanged" />
+
+        <TextBox Grid.Row="1" x:Name="TBoxEvasion" Margin="92,0,0,69" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" />
+
+        <TextBlock Text = "Max HP" FontSize="14" Grid.Column ="1" Margin="21,19,113,122" RenderTransformOrigin="2.111,-0.086" Grid.RowSpan="2" />
+
+        <TextBlock Text = "Evasion" FontSize="14" Grid.Column ="1" Margin="113,19,21,122" RenderTransformOrigin="2.111,-0.086" Grid.RowSpan="2" />
+
+        <TextBox Grid.Row="2" x:Name="TBoxCurrent" Margin="42,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" FontSize="50"/>
+
+        <TextBlock Text = "Current HP" FontSize="14" Grid.Column ="1" Margin="0,100,0,86" Grid.RowSpan="2" HorizontalAlignment="Center" Grid.Row="1" />
+
+        <TextBox x:Name="TBoxCrit" Margin="21,0,185,68" Grid.Column="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Row="1" />
+
+        <TextBlock Text = "Crit" FontSize="14" Grid.Column ="4" Margin="57,19,0,122" RenderTransformOrigin="2.111,-0.086" Grid.RowSpan="2" HorizontalAlignment="Left" />
+
+        <TextBox Grid.Row="3" x:Name="TBoxDamage" Margin="78,10,78,38" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="3" FontSize="50" Grid.Column="2"/>
+
 
 
     </Grid>

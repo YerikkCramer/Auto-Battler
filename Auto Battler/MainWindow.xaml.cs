@@ -1,6 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -18,6 +19,7 @@ namespace Auto_Battler
     public partial class MainWindow : Window
     {
         private readonly Random dice = new Random();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -25,58 +27,46 @@ namespace Auto_Battler
 
         private void Power(object sender, RoutedEventArgs e)
         {
+            Hit.Visibility = Visibility.Hidden;
+            Miss.Visibility = Visibility.Hidden;
             int randomNum1 = dice.Next(1,7);
             int randomNum2 = dice.Next(1,7);
             
-            switch (randomNum1)
-            {
-                case 1:
-                    DiceOne.Text = "1";
-                    break;
-                case 2:
-                    DiceOne.Text = "2";
-                    break;
-                case 3:
-                    DiceOne.Text = "3";
-                    break;
-                case 4:
-                    DiceOne.Text = "4";
-                    break;
-                case 5:
-                    DiceOne.Text = "5";
-                    break;
-                case 6:
-                    DiceOne.Text = "6";
-                    break;
-                default:
-                    DiceOne.Text = "1";
-                    break;
-            }
+            DiceOne.Text=randomNum1.ToString();
+            DiceTwo.Text=randomNum2.ToString();
 
-            switch (randomNum2)
+            var acc = parseOrDefault(TBoxAccuracy.Text);
+            var ev = parseOrDefault(TBoxEvasion.Text);
+            var mhp = parseOrDefault(TBoxMaxHp.Text);
+            var chp = parseOrDefault(TBoxCurrent.Text);
+            var pwr = parseOrDefault(TBoxPower.Text);
+            var crt = parseOrDefault(TBoxCrit.Text);
+            var dealt = parseOrDefault(TBoxDamage.Text);
+
+            if (randomNum1 + randomNum2 + acc >= ev)
             {
-                case 1:
-                    DiceTwo.Text = "1";
-                    break;
-                case 2:
-                    DiceTwo.Text = "2";
-                    break;
-                case 3:
-                    DiceTwo.Text = "3";
-                    break;
-                case 4:
-                    DiceTwo.Text = "4";
-                    break;
-                case 5:
-                    DiceTwo.Text = "5";
-                    break;
-                case 6:
-                    DiceTwo.Text = "6";
-                    break;
-                default:
-                    DiceTwo.Text = "1";
-                    break;
+                Hit.Visibility = Visibility.Visible;
+                var (damage, didCrit) = PowerTable.GetTotalDamage(pwr, crt);
+                chp -= damage;
+                Hit.Text = didCrit ? "Crit!" : "Hit";
+                TBoxDamage.Text = damage.ToString();
+                TBoxCurrent.Text = chp.ToString();
             }
+            else
+            {
+                Miss.Visibility = Visibility.Visible;
+            }
+        }
+
+        private int parseOrDefault(string text, int @default=0)
+        {
+            return int.TryParse(text, out int result) ? result : @default;
+        }
+
+        private void maxHpChanged(object sender, TextChangedEventArgs e)
+        {
+            var m = e.Source as TextBox;
+            TBoxCurrent.Text = m.Text;
         }
     }
 }
