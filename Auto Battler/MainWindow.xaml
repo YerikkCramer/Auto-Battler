@@ -8,65 +8,61 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="43*" />
-            <ColumnDefinition Width="185*" />
-            <ColumnDefinition Width="114*" />
-            <ColumnDefinition Width="114*" />
-            <ColumnDefinition Width="114*" />
-            <ColumnDefinition Width="185*" />
-            <ColumnDefinition Width="44*" />
+            <ColumnDefinition Width="45*" />
+            <ColumnDefinition Width="100*" />
+            <ColumnDefinition Width="100*" />
+            <ColumnDefinition Width="100*" />
+            <ColumnDefinition Width="100*" />
+            <ColumnDefinition Width="100*" />
+            <ColumnDefinition Width="100*" />
+            <ColumnDefinition Width="100*" />
+            <ColumnDefinition Width="45*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="13*"/>
-            <RowDefinition Height="45*"/>
             <RowDefinition Height="29*"/>
-            <RowDefinition Height="45*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="29*"/>
             <RowDefinition Height="13*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text = "Power" FontSize="14" Grid.Column ="5" Margin="24,19,118,122" RenderTransformOrigin="2.111,-0.086" Grid.RowSpan="2" />
+        <Button Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="3" Name="Attack" FontSize="25" Click="Power" Background="DarkSlateGray">Attack</Button>
+        
+        <TextBlock Grid.Column ="1" Grid.Row="0" Text = "Power" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Column="1" Grid.Row="1" Name="TBoxPower" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Text ="0" FontSize="50" />
 
-        <TextBlock Name="TxtPower" FontSize="14" Grid.Row ="1" Grid.Column ="5" Margin="0,0,93,68" />
+        <TextBlock Grid.Column ="2" Grid.Row="0" Text = "Accuracy" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Column="2" Grid.Row="1" x:Name="TBoxAccuracy" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text ="" FontSize="50" TextChanged="accChanged" />
 
-        <TextBox Grid.Row="1" Name="TBoxPower" Margin="0,0,93,68" Grid.Column="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+        <TextBlock Grid.Column="1" Grid.Row="3" x:Name="DiceOne" TextAlignment="Center" FontSize="50" />
+        <TextBlock Grid.Column="2" Grid.Row="3" x:Name="DiceTwo" TextAlignment="Center" FontSize="50" />
 
-        <Button Name="Attack" Grid.Column="5" Grid.Row="2" Click="Power" Margin="0,0,44,0" Grid.ColumnSpan="2" Background="DarkSlateGray">Attack</Button>
+        <TextBlock Grid.Column="4" Grid.Row="2" x:Name="Hit" Text="Hit!" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Visibility="Hidden" />
+        <TextBlock Grid.Column="4" Grid.Row="2" x:Name="Miss" Text="Miss!" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Visibility="Hidden" />
 
-        <TextBlock Text = "Accuracy" FontSize="14" Grid.Column ="5" Margin="114,19,10,122" Grid.RowSpan="2" />
+        <TextBlock Grid.Column ="6" Grid.Row="0" Text = "Max HP" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Column="6" Grid.Row="1" x:Name="TBoxMaxHp" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text ="" FontSize="50" TextChanged="maxHpChanged" />
 
-        <TextBox Grid.Row="1" x:Name="TBoxAccuracy" Margin="93,0,44,68" Grid.Column="5" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+        <TextBlock Grid.Column ="5" Grid.Row="0" Text = "Evasion" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Column="5" Grid.Row="1" x:Name="TBoxEvasion" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text ="0" FontSize="50" />
 
-        <TextBlock Grid.Row="1" x:Name="DiceOne" Margin="0,67,92,1" Grid.Column="5" TextAlignment="Center" FontSize="20" />
+        <TextBlock Grid.Column ="7" Grid.Row="0" Text = "Current HP" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" />
+        <TextBox Grid.Column="7" Grid.Row="1" x:Name="TBoxCurrent" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text ="0" FontSize="50" />
 
-        <TextBlock Grid.Row="1" x:Name="DiceTwo" Margin="92,66,44,1" Grid.Column="5" Grid.ColumnSpan="2" TextAlignment="Center" FontSize="20" />
+        <TextBlock Grid.Column ="4" Grid.Row="0" Text = "Crit" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" />
+        <TextBox Grid.Column="4" Grid.Row="1" x:Name="TBoxCrit" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text ="0" FontSize="50" />
 
-        <TextBlock Grid.Row="2" Grid.Column="3" x:Name="Hit" Text="Hit!" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Visibility="Hidden" />
+        <TextBox Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="3" x:Name="TBoxDamage" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="50" />
 
-        <TextBlock Grid.Row="2" Grid.Column="3" x:Name="Miss" Text="Miss!" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Visibility="Hidden" />
+        <TextBlock Grid.Column="3" Grid.Row="0" Text = "Bonus Damage" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Column="3" Grid.Row="1" x:Name="TBoxBonus" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text ="0" FontSize="50" />
 
-        <TextBox Grid.Row="1" x:Name="TBoxMaxHp" Margin="43,0,92,69" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" TextChanged="maxHpChanged" />
+        <TextBlock Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Text = "+" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" />
+        <TextBlock Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Text = "+" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" />
 
-        <TextBox Grid.Row="1" x:Name="TBoxEvasion" Margin="92,0,0,69" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" />
-
-        <TextBlock Text = "Max HP" FontSize="14" Grid.Column ="1" Margin="21,19,113,122" RenderTransformOrigin="2.111,-0.086" Grid.RowSpan="2" />
-
-        <TextBlock Text = "Evasion" FontSize="14" Grid.Column ="1" Margin="113,19,21,122" RenderTransformOrigin="2.111,-0.086" Grid.RowSpan="2" />
-
-        <TextBox Grid.Row="2" x:Name="TBoxCurrent" Margin="42,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" FontSize="50"/>
-
-        <TextBlock Text = "Current HP" FontSize="14" Grid.Column ="1" Margin="0,100,0,86" Grid.RowSpan="2" HorizontalAlignment="Center" Grid.Row="1" />
-
-        <TextBox x:Name="TBoxCrit" Margin="21,0,185,68" Grid.Column="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Row="1" />
-
-        <TextBlock Text = "Crit" FontSize="14" Grid.Column ="4" Margin="57,19,0,122" RenderTransformOrigin="2.111,-0.086" Grid.RowSpan="2" HorizontalAlignment="Left" />
-
-        <TextBox Grid.Row="3" x:Name="TBoxDamage" Margin="78,10,78,38" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="3" FontSize="50" Grid.Column="2"/>
-
-        <TextBox x:Name="TBoxBonus" Margin="43,0,93,68" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Row="1" />
-
-        <TextBlock Text = "Bonus Damage" FontSize="14" Grid.Column ="3" Margin="43,21,0,122" RenderTransformOrigin="2.111,-0.086" Grid.RowSpan="2" HorizontalAlignment="Left" Width="100" Grid.ColumnSpan="2" />
-
-
+        <TextBlock Grid.Column="3" Grid.Row="3" Name="plusAcc" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" />
 
     </Grid>
 
