@@ -17,7 +17,7 @@ namespace Auto_Battler
     {
         public void gobble()
         {
-            
+            //rawr
         }
     }
 }
