@@ -1,0 +1,46 @@
+﻿<Window x:Class="Auto_Battler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Auto_Battler"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="43*" />
+            <ColumnDefinition Width="185*" />
+            <ColumnDefinition Width="114*" />
+            <ColumnDefinition Width="114*" />
+            <ColumnDefinition Width="114*" />
+            <ColumnDefinition Width="185*" />
+            <ColumnDefinition Width="44*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text = "Power" FontSize="14" Grid.Column ="5" Margin="24,19,118,122" RenderTransformOrigin="2.111,-0.086" Grid.RowSpan="2" />
+
+        <TextBlock Name="TxtPower" FontSize="14" Grid.Row ="1" Grid.Column ="5" Margin="0,0,93,68" />
+
+        <TextBox Grid.Row="1" Name="TBoxPower" Margin="0,0,93,68" Grid.Column="5" />
+
+        <Button Name="Attack" Grid.Column="5" Grid.Row="2" Click="Power" Margin="0,0,44,0" Grid.ColumnSpan="2" Background="DarkSlateGray">Attack</Button>
+
+        <TextBlock Text = "Accuracy" FontSize="14" Grid.Column ="5" Margin="114,19,10,122" Grid.RowSpan="2" />
+
+        <TextBox Grid.Row="1" x:Name="TBoxAccuracy" Margin="93,0,44,68" Grid.Column="5" Grid.ColumnSpan="2" />
+        
+        <TextBlock Grid.Row="1" x:Name="DiceOne" Margin="0,67,92,1" Grid.Column="5" TextAlignment="Center" FontSize="20" />
+        <TextBlock Grid.Row="1" x:Name="DiceTwo" Margin="92,66,44,1" Grid.Column="5" Grid.ColumnSpan="2" TextAlignment="Center" FontSize="20" />
+
+
+    </Grid>
+
+
+</Window>
