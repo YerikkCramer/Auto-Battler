@@ -62,6 +62,10 @@
 
         <TextBox Grid.Row="3" x:Name="TBoxDamage" Margin="78,10,78,38" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="3" FontSize="50" Grid.Column="2"/>
 
+        <TextBox x:Name="TBoxBonus" Margin="43,0,93,68" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Row="1" />
+
+        <TextBlock Text = "Bonus Damage" FontSize="14" Grid.Column ="3" Margin="43,21,0,122" RenderTransformOrigin="2.111,-0.086" Grid.RowSpan="2" HorizontalAlignment="Left" Width="100" Grid.ColumnSpan="2" />
+
 
 
     </Grid>

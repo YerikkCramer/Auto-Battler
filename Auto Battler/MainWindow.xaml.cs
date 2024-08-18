@@ -42,14 +42,15 @@ namespace Auto_Battler
             var pwr = parseOrDefault(TBoxPower.Text);
             var crt = parseOrDefault(TBoxCrit.Text);
             var dealt = parseOrDefault(TBoxDamage.Text);
+            var bonus = parseOrDefault(TBoxBonus.Text);
 
             if (randomNum1 + randomNum2 + acc >= ev)
             {
                 Hit.Visibility = Visibility.Visible;
                 var (damage, didCrit) = PowerTable.GetTotalDamage(pwr, crt);
-                chp -= damage;
+                chp -= damage + bonus;
                 Hit.Text = didCrit ? "Crit!" : "Hit";
-                TBoxDamage.Text = damage.ToString();
+                TBoxDamage.Text = (damage + bonus).ToString();
                 TBoxCurrent.Text = chp.ToString();
             }
             else
